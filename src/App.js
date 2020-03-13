@@ -1,13 +1,15 @@
 import React from 'react';
 import './App.css';
-import ModalWindowManager from "./components/Modal Windows/ModalWindowManager";
+import MainPage from "./components/Online Shop Page/MainPage";
 
 
 
 function App() {
   return (
-      <ModalWindowManager/>
-
+      <>
+        {/*<ModalWindowManager/>*/}
+        <MainPage url={'ProductsArray.json'}/>
+        </>
   );
 }
 

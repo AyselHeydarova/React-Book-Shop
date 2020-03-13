@@ -1,0 +1,87 @@
+[
+  {
+    "Name": "The Intelligent Investor: The Definitive Book on Value Investing. A Book of Practical Counsel",
+    "Price": "$12.39",
+    "ImageURL":"Images/Intelligent_investor.jpg",
+    "ProductNumber": "A001",
+    "Colour": "Red"
+  },
+  {
+    "Name": "Start with Why: How Great Leaders Inspire Everyone to Take Action",
+    "Price": " $16.99",
+    "ImageURL":"Images/Start_with_Why.jpg",
+    "ProductNumber": "A002",
+    "Colour": "White"
+  },
+  {
+    "Name": "Thinking, Fast and Slow ",
+    "Price": " $8.99",
+    "ImageURL":"Images/Thinking.jpg",
+    "ProductNumber": "A003",
+    "Colour": "White"
+  },
+  {
+    "Name": "My Name is Eva: An absolutely gripping and emotional historical novel",
+    "Price": "$9.89",
+    "ImageURL":"Images/Eva.jpg",
+    "ProductNumber": "A004",
+    "Colour": "Red"
+  },
+  {
+    "Name": "Jojo Moyes: Me Before You",
+    "Price": "$10.89",
+    "ImageURL":"Images/MeBeforeYou.jpg",
+    "ProductNumber": "A005",
+    "Colour": "Yellow"
+  },
+  {
+    "Name": "The Things We Cannot Say: A Novel",
+    "Price": "$13.05",
+    "ImageURL":"Images/ThingsWeCannotSay.jpg",
+    "ProductNumber": "A006",
+    "Colour": "Gray"
+  },
+
+  {
+    "Name": "The Girl Who Lived: A Thrilling Suspense Novel",
+    "Price": "$14.39",
+    "ImageURL":"Images/girlWhoLived.jpg",
+    "ProductNumber": "A007",
+    "Colour": "Blue"
+  },
+  {
+    "Name": "Becoming",
+    "Price": "$14.99",
+    "ImageURL":"Images/obama.jpg",
+    "ProductNumber": "A008",
+    "Colour": "SkyBlue"
+  },
+  {
+    "Name": "The Best Friend: An utterly gripping psychological thriller with a breathtaking twist",
+    "Price": "$10.37",
+    "ImageURL":"Images/friend.jpg",
+    "ProductNumber": "A009",
+    "Colour": "Red"
+  },
+  {
+    "Name": "Where the Forest Meets the Stars",
+    "Price": "$7.37",
+    "ImageURL":"Images/forest.jpg",
+    "ProductNumber": "A010",
+    "Colour": "DarkBlue"
+  },
+  {
+    "Name": "A Curve in the Road",
+    "Price": "$7.48",
+    "ImageURL":"Images/road.jpg",
+    "ProductNumber": "A011",
+    "Colour": "Red"
+  },
+  {
+    "Name": "Shackles: The truth will set you free",
+    "Price": "$9.99",
+    "ImageURL":"Images/shackles.jpg",
+    "ProductNumber": "A012",
+    "Colour": "Green"
+  }
+]
