@@ -3,6 +3,7 @@ import ProductCard from "./ProductCard";
 import './ProductsList.scss';
 import ModalWindow from "../Modal Windows/ModalWindow";
 
+
 class ProductsList extends Component {
     state = {
         showModalWindow: false,
@@ -24,13 +25,14 @@ class ProductsList extends Component {
         this.state.favourites.push(this.state.books[clickedStarId]);
         localStorage.setItem('Favourites', JSON.stringify(this.state.favourites));
 
+        console.log(this.state.favourites);
+
 
         if (event.target.className.includes('yellow')) {
             event.target.classList.remove('yellow');
         } else if(event.target === event.currentTarget) {
             event.target.className+= ' yellow'
         }
-
 
     };
 
@@ -48,6 +50,7 @@ class ProductsList extends Component {
         const books = this.props.books.map((book, index)=> <ProductCard key={index} id={index} self={book}
                                                                         starClickHandler={this.handleStarClick}
                                                                         btnClickHandler={this.handleBtnClick}/>);
+
 
         return (
                 <>
