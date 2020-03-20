@@ -12,6 +12,7 @@ class ProductsList extends Component {
         favourites: []
     };
 
+
     closeModalHandler =(event)=>{
         event.preventDefault();
         if (event.target === event.currentTarget) {
@@ -19,17 +20,25 @@ class ProductsList extends Component {
         }
     };
 
-
     handleStarClick =(event)=> {
         const clickedStarId= event.target.id;
 
-        this.setState(()=>{
-        return {favourites: this.state.favourites.push(this.state.books[clickedStarId])}});
 
-        localStorage.setItem('Favourites', JSON.stringify(this.state.favourites));
-
+        let prevFavs = localStorage.getItem('Favourites');
+        let favArr = [];
 
 
+        if (prevFavs) {
+            favArr = [...JSON.parse(prevFavs)];
+            favArr.push(this.state.books[clickedStarId]);
+
+            favArr = Array.from(new Set(favArr));
+            localStorage.setItem('Favourites', JSON.stringify(favArr));
+
+        } else {
+            favArr.push(this.state.books[clickedStarId]);
+            localStorage.setItem('Favourites', JSON.stringify(favArr));
+        }
 
         if (event.target.className.includes('yellow')) {
             event.target.classList.remove('yellow');
@@ -42,15 +51,28 @@ class ProductsList extends Component {
     handleBtnClick = (event)=> {
 
         const clickedProductId = event.target.parentElement.parentElement.id;
-        this.state.addedToCart.push(this.state.books[clickedProductId]);
-        localStorage.setItem('Added to Cart', JSON.stringify(this.state.addedToCart));
-        this.setState({showModalWindow: true});
+
+        let prevInCart = localStorage.getItem('Added to Cart');
+        let cartArr = [];
+
+        if(prevInCart) {
+            cartArr = JSON.parse(prevInCart);
+            cartArr.push(this.state.books[clickedProductId]);
+            cartArr = Array.from(new Set (cartArr));
+            localStorage.setItem('Added to Cart', JSON.stringify(cartArr));
+            this.setState({showModalWindow: true});
+        } else {
+            cartArr.push(this.state.books[clickedProductId]);
+            localStorage.setItem('Added to Cart', JSON.stringify(cartArr));
+            this.setState({showModalWindow: true});
+        }
 
     };
 
 
     render() {
         const books = this.props.books.map((book, index)=> <ProductCard key={index} id={index} self={book}
+                                                                        clicked={false}
                                                                         starClickHandler={this.handleStarClick}
                                                                         btnClickHandler={this.handleBtnClick}/>);
 
