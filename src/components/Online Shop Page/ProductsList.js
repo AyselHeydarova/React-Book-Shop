@@ -2,14 +2,17 @@ import React, {Component} from 'react';
 import ProductCard from "./ProductCard";
 import './ProductsList.scss';
 import ModalWindow from "../Modal Windows/ModalWindow";
+import Favourites from "./Favourites";
+import Cart from "./Cart";
+import {Link, Route} from "react-router-dom";
+import MainPage from "./MainPage";
 
 
 class ProductsList extends Component {
     state = {
         showModalWindow: false,
         books: this.props.books,
-        addedToCart: [],
-        favourites: []
+
     };
 
 
@@ -40,11 +43,20 @@ class ProductsList extends Component {
             localStorage.setItem('Favourites', JSON.stringify(favArr));
         }
 
+
         if (event.target.className.includes('yellow')) {
             event.target.classList.remove('yellow');
         } else if(event.target === event.currentTarget) {
             event.target.className+= ' yellow'
         }
+
+    };
+
+  closeHandler = ()=> {
+        // const clickedIndex = event.target.id;
+        //
+        // localStorage.removeItem('Added to cart', )
+      console.log('closed')
 
     };
 
@@ -77,8 +89,13 @@ class ProductsList extends Component {
                                                                         btnClickHandler={this.handleBtnClick}/>);
 
 
+
         return (
                 <>
+
+
+
+
                     <h1 className={'section-name'}>Welcome! Check Our Latest Books</h1>
                     <div className={'Product-list-container'}>
                         {books}
@@ -94,6 +111,7 @@ class ProductsList extends Component {
                             </div>
                                      : null
                     }
+
 
                 </>
         );

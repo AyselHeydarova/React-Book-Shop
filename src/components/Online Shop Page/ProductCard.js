@@ -10,6 +10,9 @@ const ProductCard = props => {
     return (
         <div className={'Product'} id={props.id}>
 
+          {  props.closeButton ? <i className="fas fa-times-circle close-btn" onClick={props.closeClickHandler}> </i> : null}
+
+
             <div className="Product-image-container">
                 <img src={ImageURL} alt="Book cover" className={'Product-image'}/>
             </div>

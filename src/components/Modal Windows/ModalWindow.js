@@ -5,7 +5,6 @@ import PropTypes, {arrayOf} from "prop-types";
 
 const ModalWindow = props => {
 
-    // const actionBtns = props.actions.map( (btnText, index) => <button key={index} className={'action-btn'}>{btnText}</button>);
     return (
         <div className={props.className}>
             <header>{props.header}
@@ -16,7 +15,10 @@ const ModalWindow = props => {
             </header>
             <p>{props.text}</p>
 
-            {/*{actionBtns}*/}
+            {
+                props.showActionBtn ? props.actions.map( (btnText, index) => <button key={index} className={'action-btn'} onClick={props.delete}>{btnText}</button>) : null
+            }
+
 
         </div>
     );
