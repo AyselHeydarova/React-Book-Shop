@@ -19,13 +19,16 @@ class ProductsList extends Component {
         }
     };
 
+
     handleStarClick =(event)=> {
         const clickedStarId= event.target.id;
-        console.log(clickedStarId);
-        this.state.favourites.push(this.state.books[clickedStarId]);
+
+        this.setState(()=>{
+        return {favourites: this.state.favourites.push(this.state.books[clickedStarId])}});
+
         localStorage.setItem('Favourites', JSON.stringify(this.state.favourites));
 
-        console.log(this.state.favourites);
+
 
 
         if (event.target.className.includes('yellow')) {

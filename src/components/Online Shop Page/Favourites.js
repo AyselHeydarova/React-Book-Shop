@@ -1,9 +1,12 @@
 import React from 'react';
 import ProductCard from "./ProductCard";
 
-const Favourites = favourites => {
+const Favourites = () => {
 
-    favourites = JSON.parse(localStorage.getItem('Favourites'));
+   const favourites = JSON.parse(localStorage.getItem('Favourites'));
+
+   // const allFavs = [...[...favourites].push(favourites)];
+
     console.log(favourites);
     const favBooks = favourites.map((book, index)=> <ProductCard key={index} self={book}/>);
 
