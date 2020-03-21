@@ -1,3 +1,42 @@
+
+import React, {useEffect, useState} from 'react';
+import Preloader from "../Preloader/Preloader";
+import ProductsList from "./ProductsList";
+
+const MainPage = (props) => {
+
+    const [books, setStateBooks] = useState([]);
+
+    useEffect( () => {
+        fetch(props.url).then(response => response.json())
+            .then(data => {
+                setStateBooks(data);
+            });
+    },[books.length]);
+
+    const allBooks = books;
+
+    console.log(allBooks);
+
+    console.log(allBooks.length);
+
+    return (
+        <div>
+            {
+                allBooks.length === 0 ?  <Preloader/>
+                    : <ProductsList books = {allBooks} />
+            }
+
+        </div>
+    );
+};
+
+export default MainPage;
+
+
+
+
+
 // import React, {Component} from 'react';
 // import ProductsList from "./ProductsList";
 // import Preloader from "../Preloader/Preloader";
@@ -38,35 +77,5 @@
 // export default MainPage;
 
 
-import React, {useEffect, useState} from 'react';
-import Preloader from "../Preloader/Preloader";
-import ProductsList from "./ProductsList";
 
-const MainPage = (props) => {
-
-    const [books, setStateBooks] = useState([]);
-
-    useEffect( () => {
-        fetch(props.url).then(response => response.json())
-            .then(data => {
-                setStateBooks(data);
-                });
-        },[books.length]);
-
-    const allBooks = [books];
-
-    console.log(allBooks.length);
-
-    return (
-        <div>
-            {
-                allBooks.length === 0 ?  <Preloader/>
-                : <ProductsList books = {allBooks} />
-            }
-
-        </div>
-    );
-};
-
-export default MainPage;
 
