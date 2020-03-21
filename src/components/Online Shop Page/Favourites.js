@@ -3,6 +3,7 @@ import ProductCard from "./ProductCard";
 
 const Favourites = props => {
 
+
    const favDeleteHandler = (event) => {
        let prevFavs = localStorage.getItem('Favourites');
        let prevFavsArray = [...JSON.parse(prevFavs)];

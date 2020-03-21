@@ -24,9 +24,9 @@ const ProductsList = (props) => {
         let favArr = [];
 
         if (prevFavs) {
-            favArr = [...JSON.parse(prevFavs)];
+            let favArr = [...JSON.parse(prevFavs)];
             favArr.push(books[clickedStarId]);
-            favArr = Array.from(new Set(favArr));
+
             localStorage.setItem('Favourites', JSON.stringify(favArr));
 
         } else {
@@ -53,7 +53,6 @@ const ProductsList = (props) => {
         if(prevInCart) {
             cartArr = JSON.parse(prevInCart);
             cartArr.push(books[clickedProductId]);
-            cartArr = Array.from(new Set (cartArr));
             localStorage.setItem('Added to Cart', JSON.stringify(cartArr));
             setStateModal( true);
         } else {

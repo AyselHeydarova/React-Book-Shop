@@ -13,20 +13,16 @@ const Cart = (props) => {
         setStateDelete(true);
     };
 
+    let prevCartElements = localStorage.getItem('Added to Cart');
+    let prevElementsArray = [...JSON.parse(prevCartElements)];
 
     const deleteHandler = (e) => {
-        let prevCartElements = localStorage.getItem('Added to Cart');
-        let prevElementsArray = [...JSON.parse(prevCartElements)];
 
+        console.log(clickedProduct);
         clickedProduct.remove();
         setStateDelete(false);
-        let index = clickedProduct.id;
-
-        prevElementsArray.splice(index, 1);
-
         localStorage.removeItem('Added to Cart');
         localStorage.setItem('Added to Cart', JSON.stringify(prevElementsArray));
-
     };
 
 
@@ -38,7 +34,7 @@ const Cart = (props) => {
     };
 
     let cart = JSON.parse(localStorage.getItem('Added to Cart'));
-    const cartBooks =  cart ? cart.map((book, index)=> <ProductCard key={index} id={index} self={book} closeButton={true} closeClickHandler={closeHandler}/>) : console.log('wait please');
+    const cartBooks =  cart.map((book, index)=> <ProductCard key={index} id={index} self={book} closeButton={true} closeClickHandler={closeHandler}/>) ;
 
 
     return (

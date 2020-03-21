@@ -123,8 +123,7 @@
 }
 
 .close-btn {
-  position: absolute;
-  right: 5px;
-  top: 5px;
-  font-size: 30px;
+  position: relative;
+  margin-left: auto;
+  font-size: 20px;
 }
