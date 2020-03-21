@@ -3,12 +3,9 @@ import ProductCard from "./ProductCard";
 import './ProductsList.scss';
 import ModalWindow from "../Modal Windows/ModalWindow";
 import Favourites from "./Favourites";
-import Cart from "./Cart";
-import {Link, Route} from "react-router-dom";
-import MainPage from "./MainPage";
-
 
 class ProductsList extends Component {
+
     state = {
         showModalWindow: false,
         books: this.props.books,

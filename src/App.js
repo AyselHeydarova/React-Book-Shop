@@ -16,8 +16,6 @@ function App() {
 
   return (
       <>
-
-
           <nav className={'nav-bar'}>
               <Link to={'/'}>Home</Link>
               <Link to={'/favourites'}><i className="fas fa-star"> </i>Favourites</Link>
