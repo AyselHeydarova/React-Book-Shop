@@ -52,14 +52,6 @@ class ProductsList extends Component {
 
     };
 
-  closeHandler = ()=> {
-        // const clickedIndex = event.target.id;
-        //
-        // localStorage.removeItem('Added to cart', )
-      console.log('closed')
-
-    };
-
     handleBtnClick = (event)=> {
 
         const clickedProductId = event.target.parentElement.parentElement.id;
