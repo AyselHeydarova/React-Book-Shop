@@ -14,17 +14,11 @@ const MainPage = (props) => {
             });
     },[books.length]);
 
-    const allBooks = books;
-
-    console.log(allBooks);
-
-    console.log(allBooks.length);
-
     return (
         <div>
             {
-                allBooks.length === 0 ?  <Preloader/>
-                    : <ProductsList books = {allBooks} />
+                books.length === 0 ?  <Preloader/>
+                    : <ProductsList books = {books} />
             }
 
         </div>

@@ -35,12 +35,16 @@ const Cart = (props) => {
     };
 
     let cart = JSON.parse(localStorage.getItem('Added to Cart'));
+
+
     const cartBooks =  cart.map((book, index)=> <ProductCard key={index} id={index} self={book} closeButton={true} closeClickHandler={closeHandler}/>) ;
 
 
     return (
             <div className="Product-list-container">
-                {cartBooks}
+                { cart.length === 0 ? <h3>There are no books in your cart. Click to add some.</h3> :
+                    cartBooks
+                }
 
                 {
                     showDeleteModal ?

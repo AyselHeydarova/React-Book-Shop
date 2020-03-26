@@ -5,94 +5,84 @@ import './ProductsList.scss';
 
 const ProductsList = (props) => {
 
-
-
     const [showModalWindow, setStateModal] = useState(false);
-    const [books, setStateBooks] = useState(props.books);
 
-    const closeModalHandler =(event)=>{
+    const closeModalHandler = (event) => {
         event.preventDefault();
         if (event.target === event.currentTarget) {
-           setStateModal(false);
-        };
+            setStateModal(false);
+        }
     };
 
-    const  handleStarClick =(event)=> {
-        const clickedStarId= event.target.id;
+    const handleStarClick = (event) => {
+        const clickedStarId = event.target.id;
 
         let prevFavs = localStorage.getItem('Favourites');
         let favArr = [];
 
         if (prevFavs) {
             let favArr = [...JSON.parse(prevFavs)];
-            favArr.push(books[clickedStarId]);
+            favArr.push(props.books[clickedStarId]);
 
             localStorage.setItem('Favourites', JSON.stringify(favArr));
 
         } else {
-            favArr.push(books[clickedStarId]);
+            favArr.push(props.books[clickedStarId]);
             localStorage.setItem('Favourites', JSON.stringify(favArr));
         }
-
 
         if (event.target.className.includes('yellow')) {
             event.target.classList.remove('yellow');
-        } else if(event.target === event.currentTarget) {
-            event.target.className+= ' yellow'
+        } else if (event.target === event.currentTarget) {
+            event.target.className += ' yellow'
         }
-
     };
 
-   const handleBtnClick = (event)=> {
+    const handleBtnClick = (event) => {
 
         const clickedProductId = event.target.parentElement.parentElement.id;
-
         let prevInCart = localStorage.getItem('Added to Cart');
         let cartArr = [];
 
-        if(prevInCart) {
+        if (prevInCart) {
             cartArr = JSON.parse(prevInCart);
-            cartArr.push(books[clickedProductId]);
+            cartArr.push(props.books[clickedProductId]);
             localStorage.setItem('Added to Cart', JSON.stringify(cartArr));
-            setStateModal( true);
+            setStateModal(true);
         } else {
-            cartArr.push(books[clickedProductId]);
+            cartArr.push(props.books[clickedProductId]);
             localStorage.setItem('Added to Cart', JSON.stringify(cartArr));
             setStateModal(true);
         }
     };
 
-    const allBooks = props.books.map((book, index)=> <ProductCard key={index} id={index} self={book}
-                                                                  clicked={false}
-                                                                  starClickHandler={handleStarClick}
-                                                                  btnClickHandler={handleBtnClick}/>);
+    const allBooks = props.books.map((book, index) => <ProductCard key={index} id={index} self={book}
+                                                                   clicked={false}
+                                                                   starClickHandler={handleStarClick}
+                                                                   btnClickHandler={handleBtnClick}/>);
     return (
-                <>
+        <>
+            <h1 className={'section-name'}> Welcome! Check Our Latest Books</h1>
+            <div className={'Product-list-container'}>
+                {allBooks}
+            </div>
 
-                    <h1 className={'section-name'}> Welcome! Check Our Latest Books</h1>
-                    <div className={'Product-list-container'}>
-                        {allBooks}
-                    </div>
-
-                    {
-                        showModalWindow ?
-                            <div className="modal-bg" onClick={closeModalHandler}>
+            {
+                showModalWindow ?
+                    <div className="modal-bg" onClick={closeModalHandler}>
                         <ModalWindow header='Success'
                                      className={`addToCart-modal`}
-                                     text = "You successfully added this book to your shopping cart"
-                                     />
-                            </div>
-                                     : null
-                    }
+                                     text="You successfully added this book to your shopping cart"
+                        />
+                    </div>
+                    : null
+            }
 
-                </>
+        </>
     );
 };
 
 export default ProductsList;
-
-
-
 
 
 // import React, {Component} from 'react';
